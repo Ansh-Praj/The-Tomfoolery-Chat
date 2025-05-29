@@ -23,10 +23,10 @@ function App() {
   }
   
   useEffect(() => {
-    if(process.env.NODE_ENV === 'production'){
-      socketRef.current = io(process.env.SOCKET_URL)
+    if(import.meta.env.VITE_NODE_ENV === 'production'){
+      socketRef.current = io(import.meta.env.VITE_SOCKET_URL)
     }
-    if(process.env.NODE_ENV === 'development'){
+    if(import.meta.env.VITE_NODE_ENV === 'development'){
       socketRef.current = io("http://localhost:3000")
     }
     
